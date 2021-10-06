@@ -13,7 +13,10 @@ public class SpaceShip : MonoBehaviour
     float limiteL = -14;
     float limiteU = 11;
     float limiteD = -1;
-   
+
+    bool inLimitH = true;
+    bool inLimitV = true;
+
 
     //Variables para rotacion
     float rotAng = -6f;
@@ -30,7 +33,15 @@ public class SpaceShip : MonoBehaviour
     void Update()
     {
 
+        MoverNave();
 
+
+        RotarNave();
+
+    }
+
+    void MoverNave()
+    {
         // Control de movimiento 
 
         float desplH = Input.GetAxis("Horizontal");
@@ -40,21 +51,60 @@ public class SpaceShip : MonoBehaviour
         float posX = transform.position.x;
         float posY = transform.position.y;
 
-        transform.Translate(Vector3.right * desplSpeed * desplH * Time.deltaTime, Space.World);
-        transform.Translate(Vector3.up * desplSpeed * desplV * Time.deltaTime, Space.World);
 
-        //Restriccion de movimiento 
-        if(posX >= limiteR && desplH > 0 || posX <= limiteL && desplH < 0 || posY >= limiteU && desplV > 0 || posY <= limiteD && desplV < 0)
+        //Restriccion de movimiento con desplSpeed 
+
+        /*transform.Translate(Vector3.right * desplSpeed * desplH * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.up * desplSpeed * desplV * Time.deltaTime, Space.World);*/
+
+
+        /*if(posX >= limiteR && desplH > 0 || posX <= limiteL && desplH < 0 || posY >= limiteU && desplV > 0 || posY <= limiteD && desplV < 0)
         {
             desplSpeed = 0f;
         } 
         else
         {
             desplSpeed = 4f;
+        }*/
+
+
+        //Restriccion con bool
+        if (inLimitH)
+        {
+            transform.Translate(Vector3.right * desplSpeed * desplH * Time.deltaTime, Space.World);
         }
 
+        if (inLimitV)
+        {
+            transform.Translate(Vector3.up * desplSpeed * desplV * Time.deltaTime, Space.World);
 
+        }
 
+        //Restriccion en la Horizontal
+        if (posX > limiteR && desplH > 0 || posX < limiteL && desplH < 0)
+        {
+            inLimitH = false;
+
+        }
+        else
+        {
+            inLimitH = true;
+        }
+
+        //Restriccion en la Vertical
+        if (posY >= limiteU && desplV > 0 || posY <= limiteD && desplV < 0)
+        {
+            inLimitV = false;
+
+        }
+        else
+        {
+            inLimitV = true;
+        }
+    }
+
+    void RotarNave()
+    {
         // Rotacion con el movimiento
 
         float rotZ = Input.GetAxis("Horizontal") * rotAng;
@@ -65,9 +115,6 @@ public class SpaceShip : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);
 
-
-
-
-
     }
+
 }
