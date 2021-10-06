@@ -29,6 +29,14 @@ public class Instanciador : MonoBehaviour
 
         StartCoroutine("InstObst");
 
+        StartCoroutine("InstParedIzd");
+
+        StartCoroutine("InstParedDrch");
+
+        StartCoroutine("InstSuelo");
+
+        StartCoroutine("InstTecho");
+
 
     }
 
@@ -67,7 +75,7 @@ public class Instanciador : MonoBehaviour
                 randomObst = Random.Range(0, arrayObst.Length);
             }
 
-            //Instancio el prefab aleatorio en la posición calculada
+            //Instancio el prefab aleatorio en la posicion calculada
             Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
 
             yield return new WaitForSeconds(intervalo);
@@ -76,6 +84,103 @@ public class Instanciador : MonoBehaviour
         }
 
 
+
+
+    }
+
+    //Instanciacion de objetos fuera de los limites
+    IEnumerator InstParedIzd()
+    {
+        while (true)
+        {
+
+
+            
+            Vector3 instPos = new Vector3(Random.Range(-30f, -17f), Random.Range(-2f, 12f), InitPos.position.z);
+
+            int randomObst;
+
+            randomObst = Random.Range(0, arrayObst.Length);
+
+            
+            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
+
+            yield return new WaitForSeconds(0.4f);
+
+
+        }
+
+
+    }
+
+    IEnumerator InstParedDrch()
+    {
+        while (true)
+        {
+
+
+            
+            Vector3 instPos = new Vector3(Random.Range(17f, 30f), Random.Range(-2f, 12f), InitPos.position.z);
+
+            int randomObst;
+
+            randomObst = Random.Range(0, arrayObst.Length);
+
+            
+            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
+
+            yield return new WaitForSeconds(0.4f);
+
+
+        }
+
+
+    }
+
+    IEnumerator InstSuelo()
+    {
+        while (true)
+        {
+
+            
+            
+            Vector3 instPos = new Vector3(Random.Range(-22f, 22f), Random.Range(-10f, -2f), InitPos.position.z);
+
+            int randomObst;
+
+            randomObst = Random.Range(0, arrayObst.Length);
+
+            
+            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
+
+            yield return new WaitForSeconds(0.4f);
+
+
+        }
+
+
+    }
+
+    IEnumerator InstTecho()
+    {
+        while (true)
+        {
+
+
+
+            Vector3 instPos = new Vector3(Random.Range(-22f, 22f), Random.Range(12f, 20f), InitPos.position.z);
+
+            int randomObst;
+
+            randomObst = Random.Range(0, arrayObst.Length);
+
+
+            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
+
+            yield return new WaitForSeconds(0.4f);
+
+
+        }
 
 
     }
