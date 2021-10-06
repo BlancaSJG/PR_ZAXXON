@@ -47,7 +47,7 @@ public class Instanciador : MonoBehaviour
 
 
             //los objetos se instancian en valores random en  X e Y
-            Vector3 instPos = new Vector3(Random.Range(-14f, 14f), Random.Range(-1f, 11f), InitPos.position.z);
+            Vector3 instPos = new Vector3(Random.Range(-16f, 16f), Random.Range(-2f, 12f), InitPos.position.z);
 
             int randomObst;
 

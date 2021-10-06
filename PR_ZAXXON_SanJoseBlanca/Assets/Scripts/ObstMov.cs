@@ -23,7 +23,7 @@ public class ObstMov : MonoBehaviour
     void Update()
     {
         speed = initGameScript.spaceshipSpeed;
-        transform.Translate(Vector3.back * speed * Time.deltaTime/*, Space.World*/);
+        transform.Translate(Vector3.back * speed * Time.deltaTime);
 
 
         float posZ = transform.position.z;        

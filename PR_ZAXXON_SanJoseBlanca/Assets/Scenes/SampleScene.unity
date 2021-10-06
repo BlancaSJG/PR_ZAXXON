@@ -722,8 +722,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrayObst:
   - {fileID: 7303429987534933936, guid: 3decd4566cebba444940f10ea6c2e0db, type: 3}
-  - {fileID: 8678917619904901137, guid: 3fde8d99d5a23bc4398f26cd347c9c0d, type: 3}
-  - {fileID: 3717912014785858731, guid: 0e256c23f5895d14398b79c05bacc030, type: 3}
+  - {fileID: 2779543071141411921, guid: 3fde8d99d5a23bc4398f26cd347c9c0d, type: 3}
+  - {fileID: 4198266380885016539, guid: 0e256c23f5895d14398b79c05bacc030, type: 3}
   InitPos: {fileID: 1843216801}
 --- !u!4 &1843216801
 Transform:

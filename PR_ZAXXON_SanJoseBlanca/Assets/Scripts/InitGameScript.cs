@@ -15,7 +15,7 @@ public class InitGameScript : MonoBehaviour
     void Start()
     {
         spaceshipSpeed = 10f;
-        levelGame = 1;
+        levelGame = 0;
         
 
     }
