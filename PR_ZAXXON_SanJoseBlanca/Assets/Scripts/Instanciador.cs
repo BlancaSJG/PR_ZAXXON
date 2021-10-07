@@ -37,6 +37,19 @@ public class Instanciador : MonoBehaviour
 
         StartCoroutine("InstTecho");
 
+        
+        //obstaculos intermedios
+        for (float i = 0; i <= 20; i++)
+        {
+            Vector3 instPos = new Vector3(Random.Range(-30f, 30f), Random.Range(-10f, 12f), Random.Range(35f, 120f));
+
+            int randomObst;
+
+            randomObst = Random.Range(0, arrayObst.Length);
+
+
+            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
+        }
 
     }
 
