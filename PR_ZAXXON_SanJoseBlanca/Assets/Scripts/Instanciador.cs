@@ -15,7 +15,8 @@ public class Instanciador : MonoBehaviour
 
     //intervalo de la corrutina que depende de la velocidad
     float intervalo;
-
+    [SerializeField] float distObst;
+    
 
     InitGameScript initGameScript;
 
@@ -24,8 +25,9 @@ public class Instanciador : MonoBehaviour
     {
         initGameScript = GameObject.Find("InitGame").GetComponent<InitGameScript>();
 
-        //intervalo no fijo
-        intervalo = 0.3f;
+        
+        distObst = 30f;
+        intervalo = initGameScript.spaceshipSpeed / distObst;
 
         StartCoroutine("InstObst");
 
@@ -39,9 +41,9 @@ public class Instanciador : MonoBehaviour
 
         
         //obstaculos intermedios
-        for (float i = 0; i <= 20; i++)
+        for (float i = 0; i <= 100; i++)
         {
-            Vector3 instPos = new Vector3(Random.Range(-30f, 30f), Random.Range(-10f, 12f), Random.Range(35f, 120f));
+            Vector3 instPos = new Vector3(Random.Range(-30f, 30f), Random.Range(-10f, 12f), Random.Range(35f, 300f));
 
             int randomObst;
 
@@ -56,7 +58,7 @@ public class Instanciador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -88,8 +90,12 @@ public class Instanciador : MonoBehaviour
                 randomObst = Random.Range(0, arrayObst.Length);
             }
 
+            //calculo del intervalo a cada vuelta de la corrutina
+            intervalo = distObst / initGameScript.spaceshipSpeed ;
+
             //Instancio el prefab aleatorio en la posicion calculada
-            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
+            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity); 
+
 
             yield return new WaitForSeconds(intervalo);
 
