@@ -21,12 +21,15 @@ public class SpaceShip : MonoBehaviour
     //Variables para rotacion
     float rotAng = -6f;
 
+    InitGameScript initGameScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        desplSpeed = 4f;
-        
+        desplSpeed = 6f;
+
+        initGameScript = GameObject.Find("InitGame").GetComponent<InitGameScript>();
+
     }
 
     // Update is called once per frame
@@ -115,6 +118,23 @@ public class SpaceShip : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+         if(other.gameObject.layer == 6)
+        {
+
+            initGameScript.SendMessage("Morir");
+            
+
+            
+
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+
+            
+        }
     }
 
 }

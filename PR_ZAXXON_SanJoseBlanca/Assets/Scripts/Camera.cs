@@ -16,7 +16,7 @@ public class Camera : MonoBehaviour
     void Update()
     {
         //La camara sigue a la nave con una distancia en el eje Z
-        transform.position = new Vector3(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z - 4);
+        transform.position = new Vector3(playerPosition.position.x, playerPosition.position.y + 3, playerPosition.position.z - 13);
     }
 }
 

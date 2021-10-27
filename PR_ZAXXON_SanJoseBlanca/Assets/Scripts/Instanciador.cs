@@ -11,23 +11,30 @@ public class Instanciador : MonoBehaviour
     //posicion del instanciador
     [SerializeField] Transform InitPos;
 
-    int level;
+    
 
     //intervalo de la corrutina que depende de la velocidad
     float intervalo;
     [SerializeField] float distObst;
-    
+
+    float distPrimObst;
 
     InitGameScript initGameScript;
+    
+    int level;
 
     // Start is called before the first frame update
     void Start()
     {
         initGameScript = GameObject.Find("InitGame").GetComponent<InitGameScript>();
-
         
+
         distObst = 30f;
-        intervalo = initGameScript.spaceshipSpeed / distObst;
+        intervalo = distObst / initGameScript.spaceshipSpeed;
+
+        distPrimObst = 0f;
+        float numObstInit = (transform.position.z - distPrimObst) / distObst * 10;
+        print(numObstInit);
 
         StartCoroutine("InstObst");
 
@@ -40,8 +47,9 @@ public class Instanciador : MonoBehaviour
         StartCoroutine("InstTecho");
 
         
+
         //obstaculos intermedios
-        for (float i = 0; i <= 100; i++)
+        for (float i = 0; i <= numObstInit; i++)
         {
             Vector3 instPos = new Vector3(Random.Range(-30f, 30f), Random.Range(-10f, 12f), Random.Range(35f, 300f));
 
@@ -65,6 +73,12 @@ public class Instanciador : MonoBehaviour
 
     IEnumerator InstObst()
     {
+        /*//bool que avisa si sale explosivo
+        bool saleExplosivo = false;
+        int contadorArmas = 0;*/
+
+        
+        
         while (true)
         {
 
@@ -76,25 +90,43 @@ public class Instanciador : MonoBehaviour
 
             //nivel actual
             level = initGameScript.levelGame;
+            
 
             if (level == 0)
             {
                 randomObst = 0;
 
-            } else if (level > 0 && level < 3)
+            } else if (level > 0 && level < 3 /*|| saleExplosivo == true*/)
             {
-                randomObst = Random.Range(0, 3);
+                randomObst = Random.Range(0, 2);
 
-            } else
+            } else 
             {
                 randomObst = Random.Range(0, arrayObst.Length);
             }
 
             //calculo del intervalo a cada vuelta de la corrutina
+            distObst = 3f;
             intervalo = distObst / initGameScript.spaceshipSpeed ;
 
             //Instancio el prefab aleatorio en la posicion calculada
-            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity); 
+            Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
+
+            /*print(arrayObst[randomObst].tag);
+            if (arrayObst[randomObst].tag == "Explosivo")
+            {
+                saleExplosivo = true;
+            }
+
+            if (saleExplosivo)
+            {
+                contadorArmas++;
+            }
+            if (contadorArmas == 3000)
+            {
+                saleExplosivo = false;
+                contadorArmas = 0;
+            }*/
 
 
             yield return new WaitForSeconds(intervalo);
