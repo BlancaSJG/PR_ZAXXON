@@ -73,9 +73,9 @@ public class Instanciador : MonoBehaviour
 
     IEnumerator InstObst()
     {
-        /*//bool que avisa si sale explosivo
-        bool saleExplosivo = false;
-        int contadorArmas = 0;*/
+        /*//bool que avisa si sale objetivo
+        bool saleObjetivo = false;
+        int contadorObjetivos = 0;*/
 
         
         
@@ -96,9 +96,10 @@ public class Instanciador : MonoBehaviour
             {
                 randomObst = 0;
 
-            } else if (level > 0 && level < 3 /*|| saleExplosivo == true*/)
+            } else if (level > 0 && level < 3 /*|| saleObjetivo == true*/)
             {
                 randomObst = Random.Range(0, 2);
+                
 
             } else 
             {
@@ -113,19 +114,19 @@ public class Instanciador : MonoBehaviour
             Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
 
             /*print(arrayObst[randomObst].tag);
-            if (arrayObst[randomObst].tag == "Explosivo")
+            if (arrayObst[randomObst].tag == "Objetivo")
             {
-                saleExplosivo = true;
+                saleObjetivo = true;
             }
 
-            if (saleExplosivo)
+            if (saleObjetivo)
             {
-                contadorArmas++;
+                contadorObjetivos++;
             }
-            if (contadorArmas == 3000)
+            if (contadorObjetivos == 3000)
             {
-                saleExplosivo = false;
-                contadorArmas = 0;
+                saleObjetivo = false;
+                contadorObjetivos = 0;
             }*/
 
 

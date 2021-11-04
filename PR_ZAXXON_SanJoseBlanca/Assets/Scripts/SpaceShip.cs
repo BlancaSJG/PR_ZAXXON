@@ -130,7 +130,7 @@ public class SpaceShip : MonoBehaviour
 
             
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
             Destroy(other.gameObject);
 
             
