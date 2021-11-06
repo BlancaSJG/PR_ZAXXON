@@ -19,18 +19,35 @@ public class InitGameScript : MonoBehaviour
     //distancia
     static float dist;
 
-    //target es la cantidad de basura que recoges
-    int target;
+    
 
     //estado
     public bool alive;
 
-    //UI
+    /*------------------UI----------------------*/
+
     [SerializeField] Text distText;
     [SerializeField] Text levelText;
     [SerializeField] Text targetText;
     [SerializeField] GameObject gameOver;
+    [SerializeField] GameObject damage;
+    [SerializeField] GameObject warning;
+
+    //vidas
+    [SerializeField] Image lives;
+    [SerializeField] Sprite[] livesArray;
+
+    [SerializeField] int vidas;
+    int spritesPos = 0;
+
+    //target
     
+    int contadorTarget;
+
+    //score
+    [SerializeField] Text scoreText;
+    float score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +63,16 @@ public class InitGameScript : MonoBehaviour
         //para que no de problemas concatenar con un tx
         distText.text = dist + "m";
 
-        gameOver.SetActive(false);
+        vidas = 3;
+        lives.sprite = livesArray[spritesPos];
 
+        gameOver.SetActive(false);
+        damage.SetActive(false);
+        warning.SetActive(false);
+
+        contadorTarget = 0;
+
+        score = 0;
     }
 
     // Update is called once per frame
@@ -74,8 +99,11 @@ public class InitGameScript : MonoBehaviour
         //segundos que pasan 
         float tiempo = Time.time;
 
-        //metros recorridos
-        dist = Mathf.Round(tiempo) * spaceshipSpeed;
+        //metros recorridos 
+        if (spaceshipSpeed != 0)
+        {
+            dist = Mathf.Round(tiempo) * spaceshipSpeed;
+        }
         
         distText.text = Mathf.Round(dist) + "m";
 
@@ -99,13 +127,44 @@ public class InitGameScript : MonoBehaviour
         levelText.text = levelGame.ToString();
 
 
-        //el target se calcula con las colisiones - se pone un contador desde 0 y va sumando cada vez que la nav choca con un prefab de basura (?)
+        //score segun distancia y objetivos 
+        score = Mathf.Round(dist) + (contadorTarget * 37);
 
-        //score es dist + (target * 2)
+        scoreText.text = score.ToString(); 
+
+        
 
     }
 
-    
+
+
+    //Objetos
+    public void Target()
+    {
+        contadorTarget++;
+        targetText.text = contadorTarget.ToString();
+
+    }
+
+    //Chocarse
+    public void Chocar()
+    {
+        vidas--;
+        spritesPos++;
+        lives.sprite = livesArray[spritesPos];
+        gameOver.SetActive(false);
+        damage.SetActive(true);
+        warning.SetActive(true);
+
+
+        if (vidas == 0)
+        {
+            Morir();
+        }
+
+        
+
+    }
 
     //Morirse
     public void Morir()
@@ -116,7 +175,7 @@ public class InitGameScript : MonoBehaviour
         spaceshipSpeed = 0f;
 
         gameOver.SetActive(true);
-
+        damage.SetActive(true);
 
     }
 }

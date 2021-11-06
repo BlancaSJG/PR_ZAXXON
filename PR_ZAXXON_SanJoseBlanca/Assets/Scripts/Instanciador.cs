@@ -11,7 +11,8 @@ public class Instanciador : MonoBehaviour
     //posicion del instanciador
     [SerializeField] Transform InitPos;
 
-    
+    //array para objetivos
+    [SerializeField] GameObject[] arrayTarg;
 
     //intervalo de la corrutina que depende de la velocidad
     float intervalo;
@@ -73,62 +74,74 @@ public class Instanciador : MonoBehaviour
 
     IEnumerator InstObst()
     {
-        /*//bool que avisa si sale objetivo
-        bool saleObjetivo = false;
-        int contadorObjetivos = 0;*/
+               
 
-        
-        
+        //contador de vueltas
+        int contadorVueltas = 0;
+
         while (true)
         {
-
+            /*---------------Instanciacion obstaculos--------------------*/
 
             //los objetos se instancian en valores random en  X e Y
-            Vector3 instPos = new Vector3(Random.Range(-16f, 16f), Random.Range(-2f, 12f), InitPos.position.z);
+
+            float instPosX = Random.Range(-16f, 16f);
+            float instPosY = Random.Range(-2f, 12f);
+            Vector3 instPos = new Vector3(instPosX, instPosY, InitPos.position.z);
+
+
 
             int randomObst;
 
             //nivel actual
             level = initGameScript.levelGame;
-            
+
 
             if (level == 0)
             {
                 randomObst = 0;
 
-            } else if (level > 0 && level < 3 /*|| saleObjetivo == true*/)
+            }
+            else if (level > 0 && level < 3 )
             {
                 randomObst = Random.Range(0, 2);
-                
 
-            } else 
+            }
+            else
             {
                 randomObst = Random.Range(0, arrayObst.Length);
             }
 
             //calculo del intervalo a cada vuelta de la corrutina
             distObst = 3f;
-            intervalo = distObst / initGameScript.spaceshipSpeed ;
+            intervalo = distObst / initGameScript.spaceshipSpeed;
+
+            
 
             //Instancio el prefab aleatorio en la posicion calculada
             Instantiate(arrayObst[randomObst], instPos, Quaternion.identity);
 
-            /*print(arrayObst[randomObst].tag);
-            if (arrayObst[randomObst].tag == "Objetivo")
+            
+            /*------------------Instanciacion objetivos----------------------*/
+
+            //posicion de instanciado de objetivos
+            float instTargPosX = Random.Range(-16f, 16f);
+            float instTargPosY = Random.Range(-2f, 12f);
+
+            
+            Vector3 instTargPos = new Vector3(instTargPosX, instTargPosY, InitPos.position.z);
+
+            //obtetivos random
+            int randomTarg = Random.Range(0, 2);
+
+            //los objetivos salen a las 50 vueltas y si se instancian en una posicion diferente a la de los obstaculos
+            if (contadorVueltas == 50 && instTargPos != instPos)
             {
-                saleObjetivo = true;
+                Instantiate(arrayTarg[randomTarg], instTargPos, Quaternion.identity);
+                contadorVueltas = 0;
             }
 
-            if (saleObjetivo)
-            {
-                contadorObjetivos++;
-            }
-            if (contadorObjetivos == 3000)
-            {
-                saleObjetivo = false;
-                contadorObjetivos = 0;
-            }*/
-
+            contadorVueltas++;
 
             yield return new WaitForSeconds(intervalo);
 

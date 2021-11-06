@@ -125,7 +125,7 @@ public class SpaceShip : MonoBehaviour
          if(other.gameObject.layer == 6)
         {
 
-            initGameScript.SendMessage("Morir");
+            initGameScript.SendMessage("Chocar");
             
 
             
@@ -134,6 +134,14 @@ public class SpaceShip : MonoBehaviour
             Destroy(other.gameObject);
 
             
+        }
+
+        if(other.gameObject.layer == 7)
+        {
+            initGameScript.SendMessage("Target");
+
+            Destroy(other.gameObject);
+
         }
     }
 

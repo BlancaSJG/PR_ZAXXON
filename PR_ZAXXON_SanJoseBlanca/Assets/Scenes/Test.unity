@@ -653,11 +653,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d574c580e9c474684784fc4124cded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipParent: {fileID: 0}
   spaceshipSpeed: 1.15
   maxSpeed: 0
   levelGame: 0
   alive: 0
-  scoreText: {fileID: 0}
+  distText: {fileID: 0}
+  levelText: {fileID: 0}
+  targetText: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!4 &871415186
 Transform:
   m_ObjectHideFlags: 0
