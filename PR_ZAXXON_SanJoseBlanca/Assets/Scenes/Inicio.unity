@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 999167247}
   - component: {fileID: 999167246}
   m_Layer: 5
-  m_Name: Configuracion
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 999167247}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1440855698}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &999167247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +444,7 @@ GameObject:
   - component: {fileID: 1405420946}
   - component: {fileID: 1405420945}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,9 +490,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 46
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: c4f049004421a6b4c8a1688a963af4b7, type: 3}
+    m_FontSize: 36
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 69
@@ -511,6 +523,7 @@ GameObject:
   - component: {fileID: 1440855696}
   - component: {fileID: 1440855695}
   - component: {fileID: 1440855694}
+  - component: {fileID: 1440855698}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -602,6 +615,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1440855698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440855693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a787572fd8fc6684799d93a63a1c49df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1499759993
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +639,7 @@ GameObject:
   - component: {fileID: 1499759996}
   - component: {fileID: 1499759995}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HighScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,9 +685,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 46
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: c4f049004421a6b4c8a1688a963af4b7, type: 3}
+    m_FontSize: 36
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 69
@@ -693,7 +718,7 @@ GameObject:
   - component: {fileID: 1591580988}
   - component: {fileID: 1591580987}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,9 +764,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 46
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: c4f049004421a6b4c8a1688a963af4b7, type: 3}
+    m_FontSize: 36
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 69
@@ -983,7 +1008,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2076131001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1440855698}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2076131001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,7 +1121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2084129616}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1440855698}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2084129616
 MonoBehaviour:
   m_ObjectHideFlags: 0
