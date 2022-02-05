@@ -19,7 +19,8 @@ public class InitGameScript : MonoBehaviour
     //distancia
     static float dist;
 
-    
+    //audio
+    [SerializeField] AudioSource audioImpact;
 
     //estado
     public bool alive;
@@ -73,6 +74,9 @@ public class InitGameScript : MonoBehaviour
         contadorTarget = 0;
 
         score = 0;
+
+        
+
     }
 
     // Update is called once per frame
@@ -155,7 +159,7 @@ public class InitGameScript : MonoBehaviour
         gameOver.SetActive(false);
         damage.SetActive(true);
         warning.SetActive(true);
-
+        audioImpact.Play();
 
         if (vidas == 0)
         {
