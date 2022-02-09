@@ -21,9 +21,13 @@ public class InitGameScript : MonoBehaviour
 
     //audio
     [SerializeField] AudioSource audioImpact;
+    [SerializeField] AudioSource audioBoton; 
 
     //estado
     public bool alive;
+
+    
+
 
     /*------------------UI----------------------*/
 
@@ -101,7 +105,7 @@ public class InitGameScript : MonoBehaviour
         
         
         //segundos que pasan 
-        float tiempo = Time.time;
+        float tiempo = Time.timeSinceLevelLoad;
 
         //metros recorridos 
         if (spaceshipSpeed != 0)
@@ -109,9 +113,10 @@ public class InitGameScript : MonoBehaviour
             dist = Mathf.Round(tiempo) * spaceshipSpeed;
         }
         
+        
         distText.text = Mathf.Round(dist) + "m";
 
-
+        
 
         //nivel dependiendo de dist
         if(dist > 800)
@@ -177,6 +182,7 @@ public class InitGameScript : MonoBehaviour
 
         alive = false;
         spaceshipSpeed = 0f;
+        
 
         gameOver.SetActive(true);
         damage.SetActive(true);

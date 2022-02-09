@@ -1,26 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    //audio
+    [SerializeField] AudioSource audioBoton;
+    [SerializeField] AudioClip clipbtn;
+    int escenacarga;
+
+    
+
+    [SerializeField] Slider volumeSlider;
+
+
+    [SerializeField] AudioMixer masterMixer;
+
+
+    public void SetSfxLvl(float sfxVol)
     {
-        
+
+        masterMixer.SetFloat("sfxVol", sfxVol);
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMusicLvl(float musicVol)
     {
-        
+        masterMixer.SetFloat("musicVol", musicVol);
+
     }
+
+
+
 
     public void CargarEscena(int escena)
     {
-        SceneManager.LoadScene(escena);
+        audioBoton.PlayOneShot(clipbtn);
+
+        Invoke("CargarEscena2", clipbtn.length);
+        
+        
+        //SceneManager.LoadScene(escena);
+        audioBoton.Play();
+        escenacarga = escena;
 
     }
 
+
+    void CargarEscena2()
+    {
+        SceneManager.LoadScene(escenacarga);
+    }
 }
