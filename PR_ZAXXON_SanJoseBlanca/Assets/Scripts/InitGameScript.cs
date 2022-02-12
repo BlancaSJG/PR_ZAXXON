@@ -26,7 +26,10 @@ public class InitGameScript : MonoBehaviour
     //estado
     public bool alive;
 
-    
+
+    //Explosión
+    [SerializeField] Transform shipPos;
+    [SerializeField] GameObject explosionPrefab;
 
 
     /*------------------UI----------------------*/
@@ -178,14 +181,33 @@ public class InitGameScript : MonoBehaviour
     //Morirse
     public void Morir()
     {
-        shipParent.SetActive(false);
+        
 
         alive = false;
         spaceshipSpeed = 0f;
-        
 
-        gameOver.SetActive(true);
+        //Explosion en la posicion de la nave
+        
+        Vector3 exploPos = new Vector3(shipPos.position.x, shipPos.position.y, shipPos.position.z);
+        Instantiate(explosionPrefab, exploPos, Quaternion.identity);
+
         damage.SetActive(true);
 
+        Invoke("GameOver", 1.5f);
+
+        
+
     }
+
+    void GameOver()
+    {
+
+        gameOver.SetActive(true);
+                
+        shipParent.SetActive(false);
+
+    }
+
+
+
 }

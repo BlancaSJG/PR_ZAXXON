@@ -31,7 +31,7 @@ public class GameScript : MonoBehaviour
 
     public void SetMusicLvl(float musicVol)
     {
-        masterMixer.SetFloat("musicVol", musicVol);
+        masterMixer.SetFloat("musicLvl", musicVol);
 
     }
 

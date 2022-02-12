@@ -1442,7 +1442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034393050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 852575865}
@@ -1712,6 +1712,11 @@ Transform:
   m_Father: {fileID: 2107757148}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1226931528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2942773597108416373, guid: 2dcdc4c05bbdbe345826ba24501e1ccc, type: 3}
+  m_PrefabInstance: {fileID: 5139194763398482986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1431816619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,6 +2120,8 @@ MonoBehaviour:
   audioImpact: {fileID: 1778152352}
   audioBoton: {fileID: 0}
   alive: 0
+  shipPos: {fileID: 1226931528}
+  explosionPrefab: {fileID: 100016, guid: e5e72c487c3d9574195db877dff604fb, type: 3}
   distText: {fileID: 1866922230}
   levelText: {fileID: 1015002049}
   targetText: {fileID: 26065615}
@@ -2137,7 +2144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778152349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2684,11 +2691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5139194763621911123, guid: 2dcdc4c05bbdbe345826ba24501e1ccc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -960.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5139194763621911123, guid: 2dcdc4c05bbdbe345826ba24501e1ccc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5139194763621911123, guid: 2dcdc4c05bbdbe345826ba24501e1ccc, type: 3}
       propertyPath: m_LocalPosition.z
