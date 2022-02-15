@@ -857,7 +857,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioBoton: {fileID: 502617580}
   clipbtn: {fileID: 8300000, guid: 44af651678b02dc47a78b7d18c5b52e1, type: 3}
-  volumeSlider: {fileID: 0}
+  sfxSlider: {fileID: 889372455}
+  musicSlider: {fileID: 1539530863}
   masterMixer: {fileID: 24100000, guid: 4a1ebfdd34155834fa5a39649fafd803, type: 2}
 --- !u!82 &502617580
 AudioSource:
@@ -1386,7 +1387,7 @@ GameObject:
   - component: {fileID: 889372455}
   - component: {fileID: 889372454}
   m_Layer: 5
-  m_Name: SfxVolumeSlider
+  m_Name: SfxSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1860,7 +1861,7 @@ GameObject:
   - component: {fileID: 1539530863}
   - component: {fileID: 1539530865}
   m_Layer: 5
-  m_Name: VolumeSlider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

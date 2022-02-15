@@ -13,13 +13,18 @@ public class GameScript : MonoBehaviour
     [SerializeField] AudioClip clipbtn;
     int escenacarga;
     
-    [SerializeField] Slider volumeSlider;
-    
+    [SerializeField] Slider sfxSlider;
+    [SerializeField] Slider musicSlider;
+
+
 
     [SerializeField] AudioMixer masterMixer;
 
     private void Start()
     {
+        sfxSlider.value = GameManager.sfxVolumen;
+        musicSlider.value = GameManager.musicVolumen;
+
 
     }
 
@@ -29,7 +34,9 @@ public class GameScript : MonoBehaviour
     {
 
         masterMixer.SetFloat("sfxVol", sfxVol);
-
+        //GameManager.sfxVolumen = sfxVol;
+        PlayerPrefs.SetFloat("sfxVol", sfxVol);
+        GameManager.sfxVolumen = PlayerPrefs.GetFloat("sfxVol");
 
     }
 
@@ -37,8 +44,9 @@ public class GameScript : MonoBehaviour
     {
         masterMixer.SetFloat("musicVol", musicVol);
 
-        
-  
+        PlayerPrefs.SetFloat("musicVol", musicVol);
+        GameManager.musicVolumen = PlayerPrefs.GetFloat("musicVol");
+
 
     }
 
