@@ -55,20 +55,7 @@ public class SpaceShip : MonoBehaviour
         float posY = transform.position.y;
 
 
-        //Restriccion de movimiento con desplSpeed 
-
-        /*transform.Translate(Vector3.right * desplSpeed * desplH * Time.deltaTime, Space.World);
-        transform.Translate(Vector3.up * desplSpeed * desplV * Time.deltaTime, Space.World);*/
-
-
-        /*if(posX >= limiteR && desplH > 0 || posX <= limiteL && desplH < 0 || posY >= limiteU && desplV > 0 || posY <= limiteD && desplV < 0)
-        {
-            desplSpeed = 0f;
-        } 
-        else
-        {
-            desplSpeed = 4f;
-        }*/
+        
 
 
         //Restriccion con bool

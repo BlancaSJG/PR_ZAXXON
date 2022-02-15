@@ -12,13 +12,17 @@ public class GameScript : MonoBehaviour
     [SerializeField] AudioSource audioBoton;
     [SerializeField] AudioClip clipbtn;
     int escenacarga;
-
+    
+    [SerializeField] Slider volumeSlider;
     
 
-    [SerializeField] Slider volumeSlider;
-
-
     [SerializeField] AudioMixer masterMixer;
+
+    private void Start()
+    {
+
+    }
+
 
 
     public void SetSfxLvl(float sfxVol)
@@ -31,12 +35,16 @@ public class GameScript : MonoBehaviour
 
     public void SetMusicLvl(float musicVol)
     {
-        masterMixer.SetFloat("musicLvl", musicVol);
+        masterMixer.SetFloat("musicVol", musicVol);
+
+        
+  
 
     }
 
+    
 
-
+    
 
     public void CargarEscena(int escena)
     {
