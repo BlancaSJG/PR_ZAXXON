@@ -63,7 +63,7 @@ public class InitGameScript : MonoBehaviour
 
         levelGame = 0;
         spaceshipSpeed = 20f;
-        maxSpeed = 40f;
+        maxSpeed = 50f;
 
         //para que en el HS no tenga problemas score = 0;
         alive = true;
@@ -94,7 +94,7 @@ public class InitGameScript : MonoBehaviour
 
         if(spaceshipSpeed < maxSpeed && alive == true)
         {
-            spaceshipSpeed += 0.001f;
+            spaceshipSpeed += 0.004f;
         }
 
         HudText();
@@ -122,13 +122,13 @@ public class InitGameScript : MonoBehaviour
         
 
         //nivel dependiendo de dist
-        if(dist > 800)
+        if(dist > 800 && dist < 1400)
         {
             levelGame = 1;
-        }else if(dist > 1400)
+        }else if(dist > 1400 && dist < 2000)
         {
             levelGame = 2;
-        }else if(dist > 2000)
+        }else if(dist > 2000 && dist < 2600)
         {
             levelGame = 3;
         }else if(dist > 2600)

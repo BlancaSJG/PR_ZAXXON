@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] float volumeMusic;
+    
 
     
 

@@ -72,4 +72,14 @@ public class GameScript : MonoBehaviour
     {
         SceneManager.LoadScene(escenacarga);
     }
+
+
+    public void ExitGame()
+    {
+
+        Application.Quit();
+
+    }
+
+
 }
